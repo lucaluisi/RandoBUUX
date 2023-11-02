@@ -1,0 +1,178 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Caveat', cursive;
+    font-size: 40px;
+    --title-font: 'Dancing Script', cursive;
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow: hidden;
+}
+
+.background {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(./sfondo.jpg);
+    background-size: cover;
+    background-color: #ccc;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -999;
+}
+
+#title {
+    position: absolute;
+    left: 50%;
+    top: 8%;
+    transform: translateX(-50%);
+    font-size: 100px;
+    font-family: var(--title-font);
+    z-index: 999;
+}
+
+.page {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.container {
+    position: absolute;
+    left: 50%;
+    top: 38%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 450px;
+}
+
+
+.container .content {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container .content > * {
+    margin: 15px auto;
+    width: 500px;
+}
+
+.container .content .block {
+    width: fit-content;
+}
+
+.container .content .block input {
+    width: 100px;
+}
+
+.container .content .block .label {
+    display: inline-block;
+    width: 245px;
+    padding-right: 5px;
+}
+
+.container .content #generate {
+    width: fit-content;
+    padding: 0 40px;
+    font-size: 30px;
+}
+
+.container .content img#result {
+    height: 300px;
+    width: auto;
+}
+
+.container .content span#result {
+    font-size: 70px;
+    text-align: center;
+    line-height: 0.7;
+}
+
+.page div#chart {
+    width: 100%;
+    max-width: 864px;
+    height: 100%;
+}
+
+.page div#chart #myChart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.stats-link {
+    position: absolute;
+    left: 50%;
+    color: black;
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: 3px;
+    transition: .2s ease-out;
+    animation: floating 2.5s infinite ease-in-out;
+}
+.stats-link#down {
+    bottom: 15px;
+    font-size: 25px;
+}
+.stats-link#up {
+    top: 15px;
+    text-decoration: none;
+    font-size: 50px;
+}
+.stats-link:hover {
+    color: #999;
+}
+@keyframes floating {
+    0% { transform: translate(-50%, -5px); }
+    50%  { transform: translate(-50%, 0); }
+    100%   { transform: translate(-50%, -5px); }   
+}
+
+@media only screen and (max-width: 1182px) {
+    .container {
+        width: 400px;
+        height: 400px;
+    }
+
+    .container .content>* {
+        margin: 7px auto;
+        width: 400px;
+    }
+
+    .container .content .label,
+    .container .content input {
+        font-size: 30px;
+    }
+
+    .container .content .block .label {
+        width: 185px;
+    }
+
+    .container .content #result {
+        font-size: 30px;
+    }
+
+    .container .content img#result {
+        height: 200px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #title {
+        font-size: 60px;
+        top: 12%;
+    }
+
+    .container .content {
+        top: 40%;
+    }
+}
